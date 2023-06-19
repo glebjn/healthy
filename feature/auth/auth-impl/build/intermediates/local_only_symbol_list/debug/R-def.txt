@@ -1,5 +1,6 @@
 R_DEF: Internal format may change without notice
 local
+string auth_login_apply
 string auth_login_email_hint
 string auth_login_password_hint
 string auth_login_restore_password

@@ -1,4 +1,5 @@
 com.i.auth_impl
+string auth_login_apply
 string auth_login_email_hint
 string auth_login_password_hint
 string auth_login_restore_password
