@@ -1,0 +1,4 @@
+int string auth_login_email_hint 0x0
+int string auth_login_password_hint 0x0
+int string auth_login_restore_password 0x0
+int string auth_login_title 0x0
