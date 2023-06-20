@@ -5,7 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 
 @Composable
-fun RecordsListScreen() {
+fun RecordsListScreen(onNextScreen: (id: Long) -> Unit) {
 
 }
 
@@ -13,6 +13,6 @@ fun RecordsListScreen() {
 @Composable
 fun RecordsListScreenPreview() {
     MaterialTheme {
-        RecordsListScreen()
+        RecordsListScreen {}
     }
 }

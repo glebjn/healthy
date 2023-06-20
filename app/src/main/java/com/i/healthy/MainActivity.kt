@@ -49,7 +49,9 @@ class MainActivity : ComponentActivity() {
                             }
                         }
                         composable(RECORDS_LIST_SCREEN_ROUTE) {
-                            RecordsListScreen()
+                            RecordsListScreen { id ->
+                                navController.navigate(RECORD_SCREEN_ROUTE)
+                            }
                         }
                         composable(RECORD_SCREEN_ROUTE) {
                             RecordScreen()
