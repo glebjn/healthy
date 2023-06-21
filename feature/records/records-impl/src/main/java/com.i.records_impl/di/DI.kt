@@ -45,7 +45,7 @@ private fun provideOkHttpClient(): OkHttpClient {
 private fun provideRecordApiService(okhttp: OkHttpClient): RecordService {
     val contentType = "application/json".toMediaType()
     return Retrofit.Builder().client(okhttp)
-        .baseUrl("/android")
+        .baseUrl("http://google.com")
         .addConverterFactory(Json.asConverterFactory(contentType))
         .build().create(RecordService::class.java)
 }
