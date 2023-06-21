@@ -2,6 +2,7 @@
 plugins {
     id("com.android.library")
     alias(libs.plugins.kotlinAndroid)
+    alias(libs.plugins.kotlinSerialization)
 }
 
 android {
@@ -50,6 +51,12 @@ dependencies {
     implementation(libs.ui.tooling.preview)
     implementation(libs.material3)
     implementation(libs.navigation)
+    implementation(libs.retrofit)
+    implementation(libs.kotlinSerializationConverter)
+    implementation(libs.koinCore)
+    implementation(libs.koinCompose)
+    implementation(libs.okhttp)
+    implementation(libs.kotlinSerialization)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)

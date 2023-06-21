@@ -19,9 +19,9 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.i.auth_impl.AuthScreen
 import com.i.healthy.ui.theme.HealthyTheme
-import com.i.records_impl.AddRecordScreen
-import com.i.records_impl.RecordScreen
-import com.i.records_impl.RecordsListScreen
+import com.i.records_impl.addrecord.AddRecordScreen
+import com.i.records_impl.recorddetails.RecordScreen
+import com.i.records_impl.recordlist.RecordsListScreen
 
 private const val LOGIN_SCREEN_ROUTE = "login_route"
 private const val RECORDS_LIST_SCREEN_ROUTE = "records_list_route"

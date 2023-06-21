@@ -3,4 +3,5 @@
     <string name="add_record_date_hint">Укажите дату</string>
     <string name="add_record_pressure_hint">Укажите свое давление</string>
     <string name="add_record_feelings_hint">Укажите свое самочувствие</string>
+    <string name="add_record_create_action">Создать</string>
 </resources>
