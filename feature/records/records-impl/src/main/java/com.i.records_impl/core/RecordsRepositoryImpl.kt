@@ -6,16 +6,16 @@ internal class RecordsRepositoryImpl(
     private val recordService: RecordService
 ) : RecordsRepository {
 
-    override fun createRecords(record: Record) {
+    override suspend fun createRecords(record: Record) {
         val request = record.map()
         recordService.createRecord(request)
     }
 
-    override fun getRecords() {
-
+    override suspend fun getRecords(): List<Record> {
+        return recordService.getRecords().map { record -> record.map() }
     }
 
-    override fun getRecordById(id: Long) {
+    override suspend fun getRecordById(id: Long) {
 
     }
 }
