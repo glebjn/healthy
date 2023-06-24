@@ -1,3 +1,6 @@
+int drawable ic_logo_dark 0x0
+int drawable ic_logo_light 0x0
+int string app_branding_name 0x0
 int string auth_login_apply 0x0
 int string auth_login_email_hint 0x0
 int string auth_login_password_hint 0x0

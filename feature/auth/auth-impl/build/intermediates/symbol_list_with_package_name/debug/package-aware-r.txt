@@ -1,4 +1,7 @@
 com.i.auth_impl
+drawable ic_logo_dark
+drawable ic_logo_light
+string app_branding_name
 string auth_login_apply
 string auth_login_email_hint
 string auth_login_password_hint

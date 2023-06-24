@@ -56,6 +56,7 @@ dependencies {
     implementation(libs.koinCore)
     implementation(libs.koinCompose)
     implementation(libs.okhttp)
+    implementation(libs.okhttpLogging)
     implementation(libs.kotlinSerialization)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)

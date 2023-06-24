@@ -13,6 +13,8 @@ import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFact
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
+import okhttp3.logging.HttpLoggingInterceptor.Level
 import org.koin.androidx.viewmodel.dsl.viewModelOf
 import org.koin.core.module.Module
 import org.koin.dsl.module
@@ -40,16 +42,19 @@ private fun Module.provideUi() {
 }
 
 private fun provideOkHttpClient(): OkHttpClient {
+    val logging = HttpLoggingInterceptor()
+    logging.setLevel(Level.BASIC)
     return OkHttpClient.Builder()
         .connectTimeout(60, TimeUnit.SECONDS)
         .readTimeout(60, TimeUnit.SECONDS)
+        .addInterceptor(logging)
         .build()
 }
 
 private fun provideRecordApiService(okhttp: OkHttpClient): RecordService {
     val contentType = "application/json".toMediaType()
     return Retrofit.Builder().client(okhttp)
-        .baseUrl("http://google.com")
+        .baseUrl("http://192.168.0.13:8080/")
         .addConverterFactory(Json.asConverterFactory(contentType))
         .build().create(RecordService::class.java)
 }

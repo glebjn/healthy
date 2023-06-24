@@ -5,9 +5,9 @@ import retrofit2.http.POST
 
 interface RecordService {
 
-    @GET("/records")
+    @GET("records")
     suspend fun getRecords(): List<RecordResponse>
 
-    @POST("/createRecord")
+    @POST("createRecord")
     suspend fun createRecord(record: RecordRequest)
 }
