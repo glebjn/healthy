@@ -2,36 +2,29 @@
 
 package com.i.auth_impl
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.widthIn
-import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun AuthScreen(
-    onNextScreen: () -> Unit
+fun SignInScreen(
+    onSignInCompleted: () -> Unit,
+    onSignUpRequired: () -> Unit
 ) {
     Surface(
         modifier = Modifier
@@ -47,50 +40,19 @@ fun AuthScreen(
             SignInAccount(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = 20.dp)
+                    .padding(horizontal = 20.dp),
+                onSignInCompleted = { onSignInCompleted() },
+                onSignUpRequired = { onSignUpRequired() }
             )
         }
     }
 }
 
 @Composable
-fun Branding(
-    modifier: Modifier = Modifier
-) {
-    Column(
-        modifier = modifier.wrapContentHeight(align = Alignment.CenterVertically)
-    ) {
-        Logo(
-            modifier = Modifier
-                .align(Alignment.CenterHorizontally)
-                .padding(horizontal = 76.dp)
-        )
-        Text(
-            text = "Track your pressure with us!",
-            style = MaterialTheme.typography.titleMedium,
-            textAlign = TextAlign.Center,
-            modifier = Modifier
-                .padding(top = 24.dp)
-                .fillMaxWidth()
-        )
-    }
-}
-
-@Composable
-fun Logo(
-    modifier: Modifier = Modifier
-) {
-    val assetsId = R.drawable.ic_logo_light
-    Image(
-        painter = painterResource(id = assetsId),
-        modifier = modifier,
-        contentDescription = null
-    )
-}
-
-@Composable
 fun SignInAccount(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onSignInCompleted: () -> Unit,
+    onSignUpRequired: () -> Unit
 ) {
     Column(
         modifier = modifier
@@ -108,7 +70,7 @@ fun SignInAccount(
         Spacer(modifier = Modifier.padding(top = 8.dp))
         Password()
         Button(
-            onClick = {},
+            onClick = { onSignInCompleted() },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(vertical = 16.dp)
@@ -118,13 +80,17 @@ fun SignInAccount(
                 style = MaterialTheme.typography.bodyMedium,
             )
         }
-        OrSignUpAccount(modifier = Modifier.fillMaxWidth())
+        OrSignUpAccount(
+            modifier = Modifier.fillMaxWidth(),
+            onSignUpRequired = { onSignUpRequired() }
+        )
     }
 }
 
 @Composable
 fun OrSignUpAccount(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onSignUpRequired: () -> Unit
 ) {
     Column(
         modifier = modifier,
@@ -137,7 +103,7 @@ fun OrSignUpAccount(
             textAlign = TextAlign.Center
         )
         OutlinedButton(
-            onClick = {},
+            onClick = { onSignUpRequired() },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(top = 16.dp)
@@ -149,47 +115,13 @@ fun OrSignUpAccount(
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun Email() {
-    var email by remember { mutableStateOf("") }
-    OutlinedTextField(
-        value = email,
-        onValueChange = { text ->
-            email = text
-        },
-        label = {
-            Text(
-                text = "Email",
-                style = MaterialTheme.typography.bodyMedium
-            )
-        },
-        modifier = Modifier.fillMaxWidth()
-    )
-}
-
-@Composable
-fun Password() {
-    var password by remember { mutableStateOf("") }
-    OutlinedTextField(
-        value = password,
-        onValueChange = { text ->
-            password = text
-        },
-        label = {
-            Text(
-                text = "Password",
-                style = MaterialTheme.typography.bodyMedium
-            )
-        },
-        modifier = Modifier.fillMaxWidth()
-    )
-}
-
 @Preview
 @Composable
 fun AuthScreenPreview() {
     MaterialTheme {
-        AuthScreen {}
+        SignInScreen(
+            onSignInCompleted = {},
+            onSignUpRequired = {},
+        )
     }
 }

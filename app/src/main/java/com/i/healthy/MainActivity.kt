@@ -17,13 +17,15 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.i.auth_impl.AuthScreen
+import com.i.auth_impl.SignInScreen
+import com.i.auth_impl.SignUpScreen
 import com.i.healthy.ui.theme.HealthyTheme
 import com.i.records_impl.addrecord.AddRecordScreen
 import com.i.records_impl.recorddetails.RecordScreen
 import com.i.records_impl.recordlist.RecordsListScreen
 
-private const val LOGIN_SCREEN_ROUTE = "login_route"
+private const val SIGN_IN_SCREEN_ROUTE = "sign_in_route"
+private const val SIGN_UP_SCREEN_ROUTE = "sign_up_route"
 private const val RECORDS_LIST_SCREEN_ROUTE = "records_list_route"
 private const val RECORD_SCREEN_ROUTE = "record_route"
 private const val ADD_RECORD_SCREEN_ROUTE = "add_record_route"
@@ -43,10 +45,20 @@ class MainActivity : ComponentActivity() {
                     NavHost(
                         modifier = Modifier,
                         navController = navController,
-                        startDestination = LOGIN_SCREEN_ROUTE
+                        startDestination = SIGN_IN_SCREEN_ROUTE
                     ) {
-                        composable(LOGIN_SCREEN_ROUTE) {
-                            AuthScreen {
+                        composable(SIGN_IN_SCREEN_ROUTE) {
+                            SignInScreen(
+                                onSignInCompleted = {
+                                    navController.navigate(RECORDS_LIST_SCREEN_ROUTE)
+                                },
+                                onSignUpRequired = {
+                                    navController.navigate(SIGN_UP_SCREEN_ROUTE)
+                                }
+                            )
+                        }
+                        composable(SIGN_UP_SCREEN_ROUTE) {
+                            SignUpScreen {
                                 navController.navigate(RECORDS_LIST_SCREEN_ROUTE)
                             }
                         }
