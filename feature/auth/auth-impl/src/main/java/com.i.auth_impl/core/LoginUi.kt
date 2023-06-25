@@ -1,4 +1,4 @@
-package com.i.auth_impl
+package com.i.auth_impl.core
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
@@ -19,6 +19,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.i.auth_impl.R
 
 @Composable
 fun Branding(
@@ -57,12 +58,14 @@ fun Logo(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Email() {
-    var email by remember { mutableStateOf("") }
+fun Email(
+    text: String,
+    onTextChanged: (String) -> Unit
+) {
     OutlinedTextField(
-        value = email,
+        value = text,
         onValueChange = { text ->
-            email = text
+            onTextChanged(text)
         },
         label = {
             Text(
@@ -76,12 +79,14 @@ fun Email() {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Password() {
-    var password by remember { mutableStateOf("") }
+fun Password(
+    text: String,
+    onTextChanged: (String) -> Unit
+) {
     OutlinedTextField(
-        value = password,
+        value = text,
         onValueChange = { text ->
-            password = text
+            onTextChanged(text)
         },
         label = {
             Text(

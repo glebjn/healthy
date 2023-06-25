@@ -17,8 +17,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.i.auth_impl.SignInScreen
-import com.i.auth_impl.SignUpScreen
+import com.i.auth_impl.signin.SignInScreen
+import com.i.auth_impl.signup.SignUpScreen
 import com.i.healthy.ui.theme.HealthyTheme
 import com.i.records_impl.addrecord.AddRecordScreen
 import com.i.records_impl.recorddetails.RecordScreen
