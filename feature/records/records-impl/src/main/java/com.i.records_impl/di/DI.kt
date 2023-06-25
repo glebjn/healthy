@@ -6,6 +6,9 @@ import com.i.records_impl.addrecord.AddRecordViewModel
 import com.i.records_impl.core.RecordService
 import com.i.records_impl.core.RecordsRepository
 import com.i.records_impl.core.RecordsRepositoryImpl
+import com.i.records_impl.recorddetails.GetRecordByIdUseCaseImpl
+import com.i.records_impl.recorddetails.GetRecordsByIdUseCase
+import com.i.records_impl.recorddetails.RecordDetailsViewModel
 import com.i.records_impl.recordlist.GetRecordsListUseCase
 import com.i.records_impl.recordlist.GetRecordsListUseCaseImpl
 import com.i.records_impl.recordlist.RecordListViewModel
@@ -34,11 +37,13 @@ private fun Module.provideDomain() {
     single<RecordsRepository> { RecordsRepositoryImpl(get()) }
     factory<AddRecordUseCase> { AddRecordUseCaseImpl(get()) }
     factory<GetRecordsListUseCase> { GetRecordsListUseCaseImpl(get()) }
+    factory<GetRecordsByIdUseCase> { GetRecordByIdUseCaseImpl(get()) }
 }
 
 private fun Module.provideUi() {
     viewModelOf(::AddRecordViewModel)
     viewModelOf(::RecordListViewModel)
+    viewModelOf(::RecordDetailsViewModel)
 }
 
 private fun provideOkHttpClient(): OkHttpClient {

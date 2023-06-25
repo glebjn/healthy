@@ -12,10 +12,10 @@ internal class RecordsRepositoryImpl(
     }
 
     override suspend fun getRecords(): List<Record> {
-        return recordService.getRecords().map { record -> record.map() }
+        return recordService.getRecords().map { record -> record.toDomain() }
     }
 
-    override suspend fun getRecordById(id: Long) {
-
+    override suspend fun getRecordById(id: Long): Record {
+        return recordService.getRecordById(id).toDomain()
     }
 }

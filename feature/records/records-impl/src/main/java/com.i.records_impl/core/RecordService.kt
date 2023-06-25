@@ -2,6 +2,7 @@ package com.i.records_impl.core
 
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Query
 
 interface RecordService {
 
@@ -10,4 +11,7 @@ interface RecordService {
 
     @POST("createRecord")
     suspend fun createRecord(record: RecordRequest)
+
+    @GET("record")
+    suspend fun getRecordById(@Query("id") id: Long): RecordResponse
 }
