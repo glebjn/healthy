@@ -7,10 +7,14 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import kotlinx.coroutines.launch
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
@@ -50,6 +54,20 @@ fun RecordUi(record: RecordUiModel) {
             style = MaterialTheme.typography.bodyMedium
         )
     }
+    LaunchedEffect(key1 = Unit, block = {
+        launch {
+
+        }
+    })
+    SideEffect {
+        
+    }
+    DisposableEffect(key1 = Unit, effect = {
+        
+        onDispose {
+
+        }
+    })
 }
 
 @Preview
