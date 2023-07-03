@@ -1,24 +1,17 @@
 @Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
-    alias(libs.plugins.androidApplication)
+    id("com.android.library")
     alias(libs.plugins.kotlinAndroid)
 }
 
 android {
-    namespace = "com.i.healthy"
+    namespace = "com.i.auth_impl"
     compileSdk = 33
 
     defaultConfig {
-        applicationId = "com.i.healthy"
         minSdk = 24
         targetSdk = 33
-        versionCode = 1
-        versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        vectorDrawables {
-            useSupportLibrary = true
-        }
     }
 
     buildTypes {
@@ -51,11 +44,6 @@ android {
 }
 
 dependencies {
-    implementation(project(":feature:auth:auth-impl"))
-    implementation(project(":feature:records:records-impl"))
-    implementation(libs.core.ktx)
-    implementation(libs.lifecycle.runtime.ktx)
-    implementation(libs.activity.compose)
     implementation(platform(libs.compose.bom))
     implementation(libs.ui)
     implementation(libs.ui.graphics)
@@ -64,6 +52,11 @@ dependencies {
     implementation(libs.navigation)
     implementation(libs.koinCore)
     implementation(libs.koinCompose)
+    implementation(libs.retrofit)
+    implementation(libs.okhttp)
+    implementation(libs.okhttpLogging)
+    implementation(libs.kotlinSerialization)
+    implementation(libs.kotlinSerializationConverter)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
