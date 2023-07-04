@@ -41,6 +41,9 @@ jobs:
       - name: Change wrapper permissions
         run: chmod +x ./gradlew
         
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v2
+        
       # Run Tests Build
       - name: Run gradle tests
         run: ./gradlew test
