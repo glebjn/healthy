@@ -2,7 +2,7 @@ name: Push
 
 on:
   push:
-    branches: [ "develop", "master" ]
+    branches: [ "*" ]
   workflow_dispatch:
 
 jobs:
