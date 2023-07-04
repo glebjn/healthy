@@ -15,8 +15,8 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 
-const val stronglyDeemphasizedAlpha = 0.6f
-const val slightlyDeemphasizedAlpha = 0.87f
+const val STRONGLY_DEEMPHASIZED_ALPHA = 0.6f
+const val SLIGHTLY_DEEMPHASIZED_ALPHA = 0.87f
 
 private val DarkColorScheme = darkColorScheme(
     primary = Purple80,
