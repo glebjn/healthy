@@ -2,6 +2,7 @@
 plugins {
     id("com.android.library")
     alias(libs.plugins.kotlinAndroid)
+    alias(libs.plugins.detekt)
 }
 
 android {
@@ -64,4 +65,5 @@ dependencies {
     androidTestImplementation(libs.ui.test.junit4)
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.ui.test.manifest)
+    detektPlugins(libs.detektFormatting)
 }
