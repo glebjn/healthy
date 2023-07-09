@@ -16,6 +16,7 @@ dependencyResolutionManagement {
 rootProject.name = "healthy"
 include(":app")
 includeModulesFrom("feature")
+includeBuild("build-logic")
 
 fun includeModulesFrom(sourcesDirName: String, depth: Int = 3) {
     val sourcesDir = file(sourcesDirName)
@@ -40,4 +41,3 @@ fun isModule(dir: File): Boolean {
     return File(dir, "build.gradle.kts").exists() || File(dir, "build.gradle.kts.kts").exists()
 }
 
- 
