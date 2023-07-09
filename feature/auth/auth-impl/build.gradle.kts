@@ -1,6 +1,7 @@
 @Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
     id("android-library-convention")
+    alias(libs.plugins.detekt)
 }
 
 android {
@@ -28,4 +29,5 @@ dependencies {
     androidTestImplementation(libs.ui.test.junit4)
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.ui.test.manifest)
+    detektPlugins(libs.detektFormatting)
 }

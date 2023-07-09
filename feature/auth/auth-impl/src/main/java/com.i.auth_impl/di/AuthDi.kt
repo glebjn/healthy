@@ -20,6 +20,9 @@ import org.koin.dsl.module
 import retrofit2.Retrofit
 import java.util.concurrent.TimeUnit
 
+private const val CONNECT_TIMEOUT = 60L
+private const val READ_TIMEOUT = 60L
+
 val authModule = module {
     provideUi()
     provideDomain()
@@ -44,8 +47,8 @@ private fun provideOkHttpClient(): OkHttpClient {
     val logging = HttpLoggingInterceptor()
     logging.setLevel(HttpLoggingInterceptor.Level.BASIC)
     return OkHttpClient.Builder()
-        .connectTimeout(60, TimeUnit.SECONDS)
-        .readTimeout(60, TimeUnit.SECONDS)
+        .connectTimeout(CONNECT_TIMEOUT, TimeUnit.SECONDS)
+        .readTimeout(READ_TIMEOUT, TimeUnit.SECONDS)
         .addInterceptor(logging)
         .build()
 }
